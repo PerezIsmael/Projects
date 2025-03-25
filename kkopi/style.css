@@ -1,0 +1,1036 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-image: url('bg.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Set background attachment to fixed */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+h2, p {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    color: black;
+}
+
+a {
+    color: unset;
+    text-decoration: none;
+}
+
+.modal {
+    width: 1300px;
+    margin: auto;
+    max-width: 90vw;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    padding-top: 10px;
+    padding-bottom: 100px;
+    padding-left: 130px;
+    padding-right: 270px;
+}
+
+.title {
+    font-family: 'Poppins', sans-serif;
+    font-size: xx-large;
+    padding: 20px 0;
+    text-align: center;
+    color: black;
+    position: sticky;
+    top: 0;
+    background-color: #fff; /* Add a background color if needed */
+    z-index: 2; /* Set a higher z-index to ensure it appears above other elements */
+}
+
+.listCart {
+    flex-grow: 100; /* Allow the list of cart items to grow and occupy remaining space */
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+    max-height: calc(100vh - 200px); /* Adjust the max height as needed */
+    padding-bottom: 10%;
+}
+
+.total-price,
+.buttons {
+    position: sticky; /* Keep total price and buttons fixed at the bottom */
+    bottom: 0; /* Position them at the bottom */
+    width: calc(100% - 40px); /* Adjust width to account for padding */
+    padding: 10px 20px; /* Padding for total price and buttons */
+    background-color: #f0f0f0;
+    border-top: 1px solid #ccc;
+    text-align: right;
+    z-index: 1; /* Ensure they appear above the scrolling cart items */
+}
+
+
+.listProducts .item img {
+    width: 90%;
+    filter: drop-shadow(0 50px 20px #0009);
+    padding-left: 30px;
+}
+
+.listProducts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.listProducts .item {
+    background-color: #EEEEE6;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.listProducts .item h2 {
+    font-weight: 500;
+    font-size: large;
+}
+
+.listProducts .item .price {
+    letter-spacing: 7px;
+    font-size: small;
+}
+
+/* // ipad */
+@media only screen and (max-width: 992px) {
+    .listProduct {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .detail {
+        grid-template-columns: 40% 1fr;
+    }
+}
+
+/* mobile */
+@media only screen and (max-width: 768px) {
+    .listProduct {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .detail {
+        text-align: center;
+        grid-template-columns: 1fr;
+    }
+
+    .detail .image img {
+        width: unset;
+        height: 40vh;
+    }
+
+    .detail .name {
+        font-size: x-large;
+        margin: 0;
+    }
+
+    .detail .buttons button {
+        font-size: small;
+    }
+
+    .detail .buttons {
+        justify-content: center;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+}
+
+.scrollbox-arrow.left {
+    left: 0;
+}
+
+.scrollbox-arrow.right {
+    right: 0;
+}
+
+/* Hover effect for arrows */
+.scrollbox-arrow:hover {
+    background-color: #333;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+* {
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centered the cards */
+    padding-top: 5px;
+}
+
+/* Style for unclicked card */
+.card {
+    background-color: #fff;
+    width: 200px; /* Adjust the width as needed */
+    height: 200px; /* Set height equal to width to make it square */
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Hide overflow to prevent image from extending beyond card */
+    transition: transform 0.3s ease; /* Add transition for smooth animation */
+}
+
+.card .img {
+    width: 100%;
+    height: 60%; /* Adjust the height of the image */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card .img img {
+    padding-top: 90px;
+    width: auto;
+    height: auto;
+    max-width: 450%;
+    max-height: 500%;
+    object-fit: contain; /* Adjust object-fit to contain */
+}
+
+.card .content {
+    display: flex;
+    flex-direction: column; /* Changed from row to column */
+    align-items: center;
+    height: 40%; /* Adjust the height of the content area */
+    padding-top: 10 px; /* Add padding to separate image and content */
+}
+
+.card .details {
+    padding-top: 80px;
+    text-align: center; /* Centered text */
+}
+
+.details span {
+    font-weight: 600;
+    font-size: 18px;
+    display: block; /* Displayed as block for better spacing */
+    margin-bottom: 5px; /* Added margin for spacing */
+}
+
+.card a {
+    text-decoration: none;
+    padding: 7px 18px;
+    border-radius: 25px;
+    color: #fff;
+    transition: all 0.3s ease;
+    display: inline-block; /* Displayed as inline-block for better spacing */
+}
+
+/* Hover effect for card */
+.card:hover {
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sidebar header {
+    padding: 5px;
+    text-align: center;
+    background-color: #EEEEE6;
+    position: sticky;
+    top: 0;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5); /* Transparent background with 50% opacity */
+    border-radius: 4px;
+}
+
+/* Style for the scrollbar track */
+.sidebar::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1); /* Transparent background with 10% opacity */
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #EEEEE6;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 15px;
+    scrollbar-width: thin; /* Specify scrollbar width */
+    scrollbar-color: rgba(0, 0, 0, 0.5) rgba(0, 0, 0, 0.1); /* Specify scrollbar color */
+}
+
+.scrollbox {
+    overflow: auto;
+    padding-bottom: 200px;
+}
+
+.scrollbox-inner img {
+    width: 90%;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+.sidebar {
+    overflow-y: auto;
+}
+
+.scrollbox {
+    overflow: auto;
+    max-height: calc(100% - 50px);
+}
+
+.scrollbox-inner {
+    padding: 10px;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 4px;
+    background-color: transparent; 
+}
+
+::-webkit-scrollbar-track {
+    background-color: #ddd;
+    background-color: transparent; 
+}
+
+.cart-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 400px; /* Adjust as needed */
+    height: 100%; /* Cover the entire height of the screen */
+    background-color: #f8f9fa; /* Background color for the cart container */
+    border-left: 1px solid #ccc; /* Border for separation */
+    padding: 20px; /* Padding for inner content */
+    box-sizing: border-box; /* Include padding in width */
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+    z-index: 1000; /* Ensure the cart appears on top of other content */
+    text-align: justify;
+}
+
+.listCart {
+    flex-grow: 100; /* Allow the list of cart items to grow and occupy remaining space */
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+}
+
+.total-price {
+    position: absolute; /* Position the total price section absolutely */
+    bottom: 130px; /* Place it at the bottom of the cart container */
+    width: 90%; /* Occupy the full width */
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    text-align: right;
+}
+
+.buttons {
+    position: absolute; /* Position the total price section absolutely */
+    bottom: 0; /* Place it at the bottom of the cart container */
+    width: 90%; /* Occupy the full width */
+    padding: 10px;
+    margin-top: 10px;
+    padding-left: 0px;
+}
+
+.cancel-order, .done {
+    padding: 8px 16px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.confirmation-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999; /* ensure modal is on top of other content */
+}
+
+.confirmation-modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.confirmation-modal .message {
+    margin-bottom: 20px;
+}
+
+.confirmation-modal .options {
+    display: flex;
+    justify-content: center;
+}
+
+.confirmation-modal button {
+    padding: 10px 20px;
+    margin: 0 20px;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border: none;
+}
+
+.confirmation-modal button:hover {
+    background-color: white;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+/* Style for Add to Cart button */
+.add-to-cart {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px; /* Adjusted padding for smaller size */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px; /* Adjusted font size for smaller size */
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 6px; /* Adjusted border radius for smaller size */
+}
+
+/* Hover effect */
+.add-to-cart:hover {
+    background-color: #45a049; /* Darker Green */
+}
+
+/* Clicked effect */
+.add-to-cart:active {
+    background-color: #3e8e41; /* Even Darker Green */
+    transform: translateY(1px); /* Adjusted transform for smaller size */
+}
+
+/* Style for the container of the buttons */
+.buttons {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    flex-direction: column; /* Arrange buttons vertically */
+}
+
+/* Style for Cancel Order button */
+.cancel-order {
+    background-color: #f44336; /* Red */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin-bottom: 10px; /* Added margin below the button */
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+/* Hover effect for Cancel Order button */
+.cancel-order:hover {
+    background-color: #d32f2f; /* Darker Red */
+}
+
+/* Clicked effect for Cancel Order button */
+.cancel-order:active {
+    background-color: #b71c1c; /* Even Darker Red */
+    transform: translateY(1px);
+}
+
+/* Style for Done button */
+.done {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin-bottom: 10px; /* Added margin below the button */
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+/* Hover effect for Done button */
+.done:hover {
+    background-color: #45a049; /* Darker Green */
+}
+
+/* Clicked effect for Done button */
+.done:active {
+    background-color: #3e8e41; /* Even Darker Green */
+    transform: translateY(1px);
+}
+
+.confirmation-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+.confirmation-modal-content {
+    background-color: #fff;
+    width: 300px;
+    padding: 20px;
+    border-radius: 8px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+    .message {
+        margin-bottom: 20px;
+    }
+
+    .options {
+        display: flex;
+        justify-content: center;
+    }
+
+    .options button {
+        margin: 0 10px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+    .options button:hover {
+        filter: brightness(50%); /* Decrease brightness on hover */
+    }
+
+    .confirmation-modal .yes {
+        background-color: #4CAF50; /* Green */
+        transform: translateY(1px);
+        color: white;
+    }
+
+    .confirmation-modal .no {
+        background-color: #f44336; /* Red */
+        transform: translateY(1px);
+        color: white;
+    }
+
+/* CSS for the customization modal overlay */
+#customizationModal-overlay {
+    display: none; /* Hide the overlay by default */
+    position: fixed; /* Position the overlay */
+    top: 0; /* Position the overlay at the top */
+    left: 0; /* Position the overlay at the left */
+    width: 100%; /* Set the width of the overlay to cover the entire viewport */
+    height: 100%; /* Set the height of the overlay to cover the entire viewport */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    z-index: 999; /* Ensure the overlay appears below the modal */
+}
+
+/* CSS for the customization modal */
+#customizationModal {
+    display: none; /* Hide the modal by default */
+    position: fixed; /* Position the modal */
+    top: 50%; /* Center the modal vertically */
+    left: 50%; /* Center the modal horizontally */
+    transform: translate(-50%, -50%); /* Center the modal both horizontally and vertically */
+    z-index: 1000; /* Ensure the modal appears on top of other elements */
+    width: 400px; /* Set the width of the modal */
+    background-color: white; /* Set the background color */
+    border-radius: 10px; /* Add some border-radius for a rounded appearance */
+    padding: 20px; /* Add padding to the modal content */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for depth */
+}
+
+/* Optional: Style for modal title */
+#customizationModal h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+/* Optional: Style for modal inputs and buttons */
+#customizationModal select,
+#customizationModal input[type="checkbox"],
+#customizationModal button {
+    margin-bottom: 10px;
+}
+
+/* Optional: Style for the Add to Cart button */
+#customizationModal button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Optional: Hover effect for the Add to Cart button */
+#customizationModal button:hover {
+    background-color: #45a049; /* Darker green */
+}
+
+/* CSS for the cancel button */
+#customizationModal button.cancel-button {
+    background-color: #ccc; /* Light gray background */
+    color: #333; /* Dark gray text color */
+    padding: 10px 20px; /* Padding around the button */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Cursor on hover */
+    margin-top: 10px; /* Margin at the top */
+}
+
+#customizationModal button.cancel-button:hover {
+    background-color: #aaa; /* Darker gray background on hover */
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    z-index: 999; /* Ensure the overlay is above other elements */
+    display: none; /* Initially hide the overlay */
+    pointer-events: none; /* Disable pointer events for elements underneath */
+}
+
+.edit-button {
+    position: absolute;
+    bottom: 10px;
+    left: 85%;
+    transform: translateX(-50%);
+    margin-bottom: 180px;
+}
+
+/* Style for the add-ons modal */
+.add-ons-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Center the add-ons modal content */
+.add-ons-modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered horizontally */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 400px; /* Max width of the modal content */
+}
+
+/* Center the options within the add-ons modal */
+.options {
+    text-align: center;
+}
+
+/* Style for the add-ons */
+.add-ons {
+    margin-bottom: 10px;
+}
+
+/* Style for the add-ons checkboxes */
+.add-ons label {
+    display: block;
+}
+    /* Hide increment and decrement buttons within the confirmation modal */
+    .confirmation-modals .quantity-increment,
+    .confirmation-modals .quantity-decrement,
+    .confirmation-modals .quantity {
+        display: none;
+    }
+
+        /* Centering confirmation modals */
+        .confirmation-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+    
+        .confirmation-modals {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            z-index: 1000;
+            width: 400px; /* Specific size for the modal */
+            padding-top: 0px; /* Adjust padding to accommodate fixed message */
+            padding-bottom: 0px; /* Adjust padding to accommodate fixed buttons */
+        
+        }
+
+        .confirmation-modals .message,
+        .confirmation-modals .options {
+            position: sticky;
+            background-color: #fff; /* Ensure they appear above the scrollable content */
+            z-index: 1; /* Ensure they appear above the scrolling content */
+            padding: 20px;
+            left: 0;
+            right: 0;
+            top: 0;
+        }
+
+        .confirmation-modals .message{
+            top: 0;
+        }
+        
+        .confirmation-modals .options {
+            position: sticky;
+            bottom: 0;
+        }
+    
+        /* Style for item name and price */
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .cart-item .item-name {
+            flex: 1;
+        }
+        .cart-item .item-price {
+            flex: 1;
+            text-align: right;
+        }
+
+    /* Style for buttons in confirmation modal */
+    .confirmation-modals button {
+        padding: 10px 20px;
+        margin: 0 5px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .confirmation-modals button.yes {
+        background-color: #4CAF50; /* Green */
+        color: white; /* White text color */
+    }
+
+    .confirmation-modals button.no {
+        background-color: #f44336; /* Red */
+        color: white; /* White text color */
+    }
+
+    .confirmation-modals button:hover {
+        background-color: #45a049;
+    }
+    .confirmation-modals .cart-item {
+        position: relative;
+    }
+    
+    .confirmation-modals .cart-item .quantity {
+        position: absolute;
+        left: 0;
+    }
+    .card.selected {
+        background-color: #EEEEE6; /* Grey background color */
+    }
+    .cart-item {
+    position: relative;
+    padding-right: 120px; /* Increase padding to accommodate both buttons and quantity */
+}
+
+.product-image,
+.product-name,
+.product-price {
+    display: block;
+}
+
+.hide-on-add-to-cart {
+    display: none;
+}
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-item .item-details {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.cart-item .name {
+    font-weight: bold;
+}
+
+.cart-item .quantity {
+    font-weight: bold;
+}
+
+.cart-item .quantity::after {
+    content: 'x'; /* Add 'x' after the quantity */
+}
+
+.cart-item .addons {
+    color: #555;
+}
+
+.cart-item .price {
+    flex: 0 0 80px; /* Fixed width for price */
+    text-align: right;
+    margin-right: 10px;
+}
+/* CSS for buttons inside the openModal function */
+
+/* Generic button styles */
+.button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Add to Cart button */
+.add-to-cart {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+/* Confirm button */
+.confirm-button {
+    margin-top: 20%;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 12px 24px; /* Adjust padding to make the button bigger */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add border-radius to make it rounded */
+}
+
+/* Cancel button */
+.cancel-button {
+    margin-top: 20%;
+    background-color: #f44336; /* Red */
+    color: white;
+    padding: 12px 24px; /* Adjust padding to make the button bigger */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add border-radius to make it rounded */
+}
+
+/* Hover effect for buttons */
+.button:hover {
+    opacity: 0.8;
+}
+
+/* Hover effect for Add to Cart button */
+.add-to-cart:hover {
+    background-color: #45a049; /* Darker green */
+}
+
+/* Hover effect for Confirm button */
+.confirm-button:hover {
+    background-color: #45a049; /* Darker green */
+}
+
+/* Hover effect for Cancel button */
+.cancel-button:hover {
+    background-color: #d63434; /* Darker red */
+}
+/* Size options */
+.size-options {
+    text-align: left; /* Align content to the left */
+}
+
+/* Add-ons */
+.addons {
+    text-align: left; /* Align content to the left */
+}
+
+/* CSS for selected card */
+.card.selected {
+    background-color: #e0e0e0; /* Lighter gray color */
+}
+
+/* Hover effect for card */
+.card:hover {
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.addons {
+    text-decoration: none;
+}
+.add {
+    text-decoration: underline;
+}
+.jumbo-price {
+    font-size: 14px;
+    color: #666;
+    margin-top: -26px;
+    padding-inline-start: 58%;
+}
+.add-to-cart {
+    font-size: large;
+}
+
+.cart-item .quantity {
+    margin-right: 20px; /* Adjust as needed */
+}
+
+.cart-item .price {
+    /* Add margin or padding to create space between quantity and price */
+    margin-left: 10px; /* Adjust as needed */
+}
+.confirmation-modals {
+    max-height: 70vh; /* Adjust the maximum height as needed */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+/* Cancel modal overlay */
+.cancel-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    z-index: 1000; /* Ensure the modal is on top of other content */
+}
+
+/* Cancel modal content */
+.cancel-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Shadow effect */
+    z-index: 1001; /* Ensure the modal is on top of the overlay */
+}
+
+.cancel-modal-content {
+    text-align: center;
+}
+
+.cancel-modal .message {
+    margin-bottom: 20px;
+}
+
+.cancel-modal .options button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cancel-modal .options button.yes {
+    background-color: #45a049; /* Red color for "Yes" button */
+    color: #fff;
+}
+
+.cancel-modal .options button.no {
+    background-color: #f44336; /* Blue color for "No" button */
+    color: #fff;
+}
+
+.confirmation-modals .message {
+    font-weight: bold;
+}
+.delete-item img {
+    width: 15px; /* Adjust the width as needed */
+    height: 15px; /* Adjust the height as needed */
+    cursor: pointer; /* Add cursor pointer to indicate it's clickable */
+}
+/* CSS for delete confirmation modal buttons */
+.confirmation-modal-content .options button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Style for the "Yes" button */
+.confirmation-modal-content .options button.delete-yes {
+    background-color: #4CAF50; /* Red */
+    color: #fff; /* White text color */
+}
+
+/* Hover effect for the "Yes" button */
+.confirmation-modal-content .options button.delete-yes:hover {
+    background-color: #4CAF50; /* Darker red */
+}
+
+/* Style for the "No" button */
+.confirmation-modal-content .options button.delete-no {
+    background-color: #d32f2f; /* Green */
+    color: #fff; /* White text color */
+}
+
+/* Hover effect for the "No" button */
+.confirmation-modal-content .options button.delete-no:hover {
+    background-color: #d32f2f; /* Darker green */
+}
+/* Add this to your style.css file */
+.card.selected {
+    background-color: white; /* Change to the desired background color */
+    color: black; /* Change to the desired text color */
+    /* Add any other styles for the selected state */
+}

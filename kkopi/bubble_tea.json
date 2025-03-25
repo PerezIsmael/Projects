@@ -1,0 +1,66 @@
+[
+    {
+        "id": 1,
+        "name": "Pearl Milktea",
+        "price": "₱39",
+        "image": "img/pmt.png",
+        "category": 0,
+        "description": ""
+    },
+    {
+        "id": 2,
+        "name": "Muscovado",
+        "price": "₱39",
+        "image": "img/4.png",
+        "category": 1,
+        "description": ""
+    },
+    {
+        "id": 3,
+        "name": "Cookies and Cream",
+        "price": "₱39",
+        "image": "img/4.png",
+        "category": 2,
+        "description": ""
+    },
+    {
+        "id": 4,
+        "name": "Wintermelon",
+        "price": "₱39",
+        "image": "img/4.png",
+        "category": 3,
+        "description": ""
+    },
+    {
+        "id": 5,
+        "name": "Matcha",
+        "price": "₱39",
+        "image": "img/4.png",
+        "category": 4,
+        "description": ""
+    },
+    {
+        "id": 6,
+        "name": "Okinawa",
+        "price": "₱39",
+        "image": "img/oki.png",
+        "category": 5,
+        "description": ""
+    },
+    {
+        "id": 7,
+        "name": "Hokkaido",
+        "price": "₱39",
+        "image": "img/hok.png",
+        "category": 6,
+        "description": ""
+    },
+    {
+        "id": 8,
+        "name": "Chocolate",
+        "price": "₱39",
+        "image": "img/choco.png",
+        "category": 7,
+        "description": ""
+    }
+]

@@ -1,0 +1,168 @@
+<html>
+  <head>
+    <title>PFL Cinema Ticket</title>
+    <link rel="shortcut icon" type="image/png" href="icon.png">
+    <link rel="stylesheet" href="">
+
+    <script>
+      function validateForm() {
+        var cname = document.forms["orderForm"]["cname"].value;
+        var creditcard = document.forms["orderForm"]["creditcard"].value;
+        var cvc = document.forms["orderForm"]["cvc"].value;
+        var expiration = document.forms["orderForm"]["expiration"].value;
+        var country = document.forms["orderForm"]["country"].value;
+        var bank = document.forms["orderForm"]["bank"].value;
+  
+        if (cname == "" ||
+            creditcard == "" || 
+            cvc == "" || 
+            expiration == "" || 
+            country == "" ||
+            bank == "") {
+          alert("Please fill out all required fields.");
+          return false;
+        }
+      }
+    </script>
+
+    <style>
+    body {
+      background-image: url('background.jpg');
+      background-size: cover;
+      background-position: center;
+      font-family: Arial, sans-serif;
+    }
+    </style>
+   
+    <style>
+      /* Center the form */
+      #form-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 125vh;
+        font-family: Arial, sans-serif;
+        scroll-behavior: smooth;
+      }
+
+      /* Style the form */
+      form {
+        background-color: #f2f2f2;
+        border-radius: 5px;
+        padding: 20px;
+        width: 500px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      }
+      
+      label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+      
+      input[type="text"], select {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-bottom: 15px;
+      }
+      
+      input[type="submit"] {
+        background-color: #294d61;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        float: right;
+        transition: background-color 0.3s;
+      }
+      
+      input[type="submit"]:hover {
+        background-color: #182d39;
+      }
+      .cancel-button {
+        background-color: #294d61;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 6px;
+        transition: 0.2s;
+        font-size: 16px;
+        cursor: pointer;
+        float: left;
+        transition: background-color 0.3s;
+      }
+
+      a.no-underline{
+        background-color: #294d61;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+        float: left;
+        text-decoration: none;
+        transition: background-color 0.3s;
+      }
+
+      .cancel-button:hover {
+        background-color: #182d39;
+      }
+
+      a.no-underline:hover {
+        background-color: #182d39;
+      }
+
+    </style>
+</head>
+  <body>
+    <div id="form-wrapper">
+      <form id= "orderForm" action="receipt.html" method="get" onsubmit="return validateForm()">
+        <label for="cname">Name</label>
+           <input type="text" id="cname" name="cname" required>
+        
+        <label for="credit-card">Credit Card No.</label>
+          <input type="text" id="creditcard" name="creditcard" placeholder="0000 0000 0000 0000">
+
+        <label for="cvc_cvv2">CVC/CVV2</label>
+          <input type="text" id="cvc" name="security-code" placeholder="000">
+
+        <label for="expiration">Expiry Date</label>
+          <input type="month" id="expiration" name="expiration" required><br></br>
+
+        <label for="issuing-county">Issuing Country</label>
+        <select id="country" name="country" required>
+          <option value="country">Philippines</option>
+        </select>
+
+        <label for="issuing-bank">Issuing Bank</label>
+        <select id="bank" name="bank" required>
+          <option value="B">Please Select</option>
+          <option value="B">BANCO DE ORO</option>
+          <option value="B">BANKARD.INC</option>
+          <option value="B">CITIBANK SAVINGS INC.</option>
+          <option value="B">HOME CREDIT</option>
+          <option value="B">LANDBANK OF THE PHILIPPINES</option>
+          <option value="B">MAYBANK</option>
+          <option value="B">PHILIPPINE NATIONAL BANK</option>
+          <option value="B">PVB CARD</option>
+          <option value="B">VISA</option>
+        </select>
+
+     <input type="submit" id="submitbutton" value="Proceed To Checkout">
+     <a href=PFLPersonalDetails.html class="cancel-button, no-underline">Cancel</a></button>
+         </form>
+      </div>
+
+      <div id="receipt"></div>
+
+      <div id="overlay" style="display: none;">
+        <h1>Loading...</h1>
+      </div>
+
+  </body>
+</html>

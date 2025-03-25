@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PFL CINEMA</title>
+  <link rel="shortcut icon" type="image/png" href="icon.png">
+
+  <style>
+    body {
+      background-image: url('background.jpg');
+      background-size: cover;
+      background-position: center;
+      font-family: Arial, sans-serif;
+    }
+    </style>
+
+      <script>
+    window.addEventListener('beforeunload', function() {
+      document.querySelector('.loading-screen').style.display = 'flex';
+    });
+      </script>
+    
+      <script>
+        function setMovieSelection(movie) {
+          var selectElement = document.getElementById("selected-movie");
+          selectElement.value = movie;
+        }
+      </script>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f2f2f2;
+  }
+  
+  h1 {
+    text-align: just;
+    color: white;
+  }
+  
+  .movie-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    flex-direction: row;
+  }
+  
+  .movie {
+    width: 260px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    text-align: center;
+  }
+
+  .movie img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+  
+  .movie h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    white-space: pre-line;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #294d61;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+  }
+  
+  .btn:hover {
+    background-color: #182d39;
+  }
+
+  .loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      display: none;
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .loading-text {
+      font-size: 24px;
+    }
+
+    .movie-description-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .movie-description-overlay .description-text {
+      color: white;
+      font-size: 18px;
+      max-width: 80%;
+      text-align: left;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.8);
+      border-radius: 5px;
+      margin: auto;
+      user-select: none;
+      line-height: 1.4;
+      white-space: pre-line
+    }
+
+    .csmovie-container {
+      display: flex;
+      justify-content:flex-start;
+      align-items: center;
+      overflow: auto;
+      margin-top: 20px;
+      padding-bottom: 10;
+      }
+  
+    .csmovie {
+      flex: 0 0 260;
+      padding: 10px;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin: 10px;
+      text-align: center;
+    }
+
+    .csmovie:last-child {
+      margin-right: 0;
+    }   
+
+    .csmovie img {
+      width: fit-content;
+      max-height: 200px;
+      object-fit: cover;
+      margin-bottom: 10px;
+  }
+  
+    .csmovie h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+  }
+</style>
+
+</head>
+<body>
+  <h1>NOW SHOWING</h1>
+  
+  <div class="movie-container">
+    <div class="movie" data-description="The Super Mario Bros. Movie
+
+                                        A 2023 computer-animated adventure film based on Nintendo's Mario video game franchise.
+                                        Produced by Universal Pictures, Illumination, and Nintendo, and distributed by Universal,
+                                        the film was directed by Aaron Horvath and Michael Jelenic and written by Matthew Fogel.
+                                        
+                                        Cast: 
+                                        Chris Pratt, Anya Taylor-Joy, Charlie Day, Jack Black, Keegan-Michael Key, Seth Rogen
+                                        
+                                        Run Time:
+                                        92 Minutes
+                                        
+                                        Genre:
+                                        Animation" onclick="showDescription(this)">
+
+      <img src="MBM.jpg" alt="Movie 1">
+      <h2>The Super Mario Bros. Movie</h2>
+      <a class="btn" href="PFLOrderingCinemaTicket.html?movie=The Super Mario Bros. Movie">Buy Tickets</a>
+    </div>
+  
+    <div class="movie" data-description="Here Comes the Groom
+
+                                        A 2023 Philippine comedy film starting Enchong dee, Maris Racal, Keempee de Leon
+                                        and Eugene Domingo. The film is written and directed by Chris Martinez and is Under
+                                        the production of Quantum Films, Cineko Productions and Brightlight Productions.
+                                        
+                                        Cast: 
+                                        Enchong dee, Maris Racal, Keempee de Leon, Eugene Domingo
+                                        
+                                        Run Time:
+                                        107 Minutes
+                                        
+                                        Genre:
+                                        Comedy" onclick="showDescription(this)">
+
+      <img src="HCG.jpg" alt="Movie 2">
+      <h2>Here Comes the Groom</h2>
+      <a class="btn" href="PFLOrderingCinemaTicket.html?movie=Here Comes the Groom">Buy Tickets</a>
+    </div>
+  
+    <div class="movie" data-description="The Little Mermaid
+
+                                        The youngest of King Triton's daughters, Ariel is a beautiful and spirited young mermaid
+                                        with a thirst for adventure. Longing to find out more about the world beyond the sea,
+                                        Ariel visits the surface and falls for the dashing Prince Eric. Following her heart,
+                                        she makes a deal with the evil sea witch, Ursula, to experience life on land.
+                                        
+                                        Cast: 
+                                        Halle Bailey, Jonah Hauer-King, Melissa McCarthy,
+                                        Javier Bardem, Noma Dumezweni
+                                        
+                                        Run Time:
+                                        83 Minutes
+                                        
+                                        Genre:
+                                        Children's film" onclick="showDescription(this)">
+
+      <img src="LM.jpg" alt="Movie 3">
+      <h2>The Little Mermaid</h2>
+      <a class="btn" href="PFLOrderingCinemaTicket.html?movie=The Little Mermaid">Buy Tickets</a>
+    </div>
+  
+    <div class="movie" data-description="Love You Long Time
+
+                                        Love You Long Time is a 2023 Philippine drama film directed by JP Habac under Studio
+                                        Three Sixty starring Carlo Aquino and Eisel Serrano. The film revolves around the 
+                                        interaction of two characters in two different timelines via two-way radios
+                                        
+                                        Cast: 
+                                        Carlo Aquino, Eisel Serrano, Ana Abad Santos,
+                                        Arlene Muhlach, Meann Espinosa
+                                        
+                                        Run Time:
+                                        104 Minutes
+                                        
+                                        Genre:
+                                        Romantic drama" onclick="showDescription(this)">
+
+      <img src="LYLT.jpg" alt="Movie 4">
+      <h2>Love You Long Time</h2>
+      <a class="btn" href="PFLOrderingCinemaTicket.html?movie=Love You Long Time">Buy Tickets</a>
+    </div>
+  
+    <div class="movie" data-description="Single Bells
+
+                                        A 2023 Philippine comedy film starring Alex Gonzaga and Angeline Quinto.
+                                        It was directed by Fifth Solomon under TinCan Productions and Black Cap Pictures.
+                                        
+                                        Cast: 
+                                        Alex Gonzaga, Angeline Quinto, Aljur Abrenica, Victor Silayan
+                                        
+                                        Run Time:
+                                        93 Minutes
+                                        
+                                        Genre:
+                                        Comedy" onclick="showDescription(this)">
+
+      <img src="SB.jpg" alt="Movie 5">
+      <h2>Single Bells</h2>
+      <a class="btn" href="PFLOrderingCinemaTicket.html?movie=Single Bells">Buy Tickets</a>
+    </div>
+  
+    <div class="movie" data-description="Apag
+
+                                        Kapampangan restaurateur Rafael Tuazon (Coco Martin)
+                                        who was making preparations for a feast, finds himself in a fatal vehicular accident
+                                        which took the life of a tricycle driver (Matias). His father Alfredo Tuazon
+                                        (Lito Lapid) takes a fall for the crime to save his son from legal repercussions. Rafael, 
+                                        free but overcome by guilt, tries to make amends to Nita (Gladys Reyes),
+                                        the widow of the driver.
+                                        
+                                        Cast: 
+                                        Coco Martin, Lito Lapid, Gladys Reyes
+                                        
+                                        Run Time:
+                                        104 Minutes
+                                        
+                                        Genre:
+                                        Drama" onclick="showDescription(this)">
+      <img src="A.jpg" alt ="Movie 6">
+      <h2>Apag</h2>
+      <a class="btn" href="PFLOrderingCinemaTicket.html?movie=Apag">Buy Tickets</a>
+    </div>
+  </div>
+<br>
+  <h1>COMING SOON</h1>
+
+  <div class="csmovie-container">
+  <div class="csmovie" data-description="Elemental
+
+                                        Disney and Pixar's “Elemental” is an all-new, original feature film set in Element City, 
+                                        where fire-, water-, land- and air residents live together. The story introduces Ember, 
+                                        a tough, quick-witted and fiery young woman, whose friendship with a fun, sappy,
+                                        go-with-the-flow guy named Wade challenges her beliefs about the world they live in.
+    
+                                        Cast: 
+                                        Leah Lewis, Mamoudou Athie, Ronnie Del Carmen
+  
+                                        Run Time:
+                                        109 Minutes
+
+                                        Opening Date:
+                                        Wednesday, 14 June 2023
+  
+                                        Genre:
+                                        Animation" onclick="showDescription(this)">
+
+      <img src="E.jpg" alt="Movie 7">
+      <h2>Elemental</h2>
+    </div>
+
+  <div class="csmovie" data-description="The Flash
+
+                                        Barry Allen uses his super speed to change the past, but his attempt to save his family
+                                        creates a world without super heroes, forcing him to race for his life in order to save the future
+
+                                        Cast: 
+                                        Ben Affleck, Ezra Miller, Sasha Calle
+  
+                                        Run Time:
+                                        144 Minutes
+
+                                        Opening Date:
+                                        Tuesday, 13 June 2023
+  
+                                        Genre:
+                                        Action/Adventure" onclick="showDescription(this)">
+      <img src="F.jpg" alt ="Movie 8">
+      <h2>The Flash</h2>
+    </div>
+
+    <div class="csmovie" data-description="Kandahar
+
+                                      A CIA operative and his translator flee from special forces in Afghanistan after exposing a covert mission.
+
+                                      Cast: 
+                                      Ali Fazal, Gerard Butler
+  
+                                      Run Time:
+                                      119 Minutes
+
+                                      Opening Date:
+                                      Wednesday, 21 June 2023
+  
+                                      Genre:
+                                      Action/Adventure" onclick="showDescription(this)">
+    <img src="K.jpg" alt ="Movie 9">
+    <h2>Kandahar</h2>
+  </div>
+
+  <div class="csmovie" data-description="No Hard Feelings
+
+                                      Maddie (Lawrence) thinks she's found the answer to her financial troubles when she discovers an intriguing job listing:
+                                      wealthy helicopter parents looking for someone to date their introverted 19-year-old son, Percy,
+                                      and bring him out of his shell before he leaves for college. But awkward Percy proves to be more of a challenge
+                                      than she expected, and time is running out. She has one summer to make him a man or lose it all.
+
+                                      Cast: 
+                                      Andrew Barth Feldman, Jennifer Lawrence, Matthew Broderick
+
+                                      Run Time:
+                                      100 Minutes
+
+                                      Opening Date:
+                                      Wednesday, 21 June 2023
+
+                                      Genre:
+                                      Comedy" onclick="showDescription(this)">
+    <img src="NHF.jpg" alt ="Movie 10">
+    <h2>No Hard Fee...</h2>
+  </div>
+
+  <div class="csmovie" data-description="SUGA: Road To D-DAY
+
+                                      In celebration of BTS' 10th anniversary, SUGAs solo documentary will be available in cinemas around the world for a limited time. Don't miss the chance to gather with your friends and family to enjoy the movie on the big screen! Min Yunki, who had a
+                                      lot of worries and dreams, has established himself as the world-renowned artist, SUGA of BTS, at twenty-eight years old.
+                                      After leaving behind a unique legacy with his natural talent, hard work, and brilliant success, he works on a solo album as
+                                      Agust D, embarking on a journey to uncovering new stories. From Las Vegas, Malibu, San Francisco, and Tokyo, to Chuncheon, Pyeongchang, and Seoul, SUGA hits the road to find his dream once again.
+
+                                      Cast:
+                                      Min Yoongi.
+
+                                      Run Time:
+                                      81 Minutes
+
+                                      Opening Date:
+                                      Saturday, 17 June 2023
+
+                                      Genre:
+                                      Documentary" onclick="showDescription(this)">
+      <img src="SRDD.jpg" alt ="Movie 11">
+      <h2>SUGA: R...</h2>
+  </div>
+
+  <div class="csmovie" data-description="Indiana Jones And The Dial Of Destiny
+
+                                      Archaeologist Indiana Jones races against time to retrieve a legendary artifact that can change the course of history.
+
+                                      Cast: 
+                                      Harrison Ford, Mads Mikkelsen, Phoebe Waller-Bridge
+
+                                      Run Time:
+                                      142 Minutes
+
+                                      Opening Date:
+                                      Wednesday, 28 June 2023
+
+                                      Genre:
+                                      Action/Adventure" onclick="showDescription(this)">
+      <img src="IJ.jpg" alt ="Movie 12">
+      <h2>Indiana Jo...</h2>
+  </div>
+
+    <div class="csmovie" data-description="J-Hope IN THE BOX
+
+                                      In celebration of BTS' 10th anniversary, j-hope's solo documentary will be available in cinemas around the world for 
+                                      a limited time. Don't miss the chance to gather with your friends and family to enjoy the movie on the big screen! 
+                                      I'm your HOPE. You're my HOPE. I'm j-hope. j-hope is the first Korean musician to headline the main stage of the 
+                                      world's largest music festival, Lollapalooza in Chicago. The young Jung Hoseok, who loved dance, is now famously 
+                                      known as j-hope, the main dancer and rapper of the world-renowned group, BTS. After the huge success of Dynamite 
+                                      and Butter, he begins working on his first official solo album. Amid concerns and anxiety about his identity as 
+                                      a solo artist, j-hope takes a leap of faith, and prepares to come out of the box and greet the world. We capture the 
+                                      daily life of artist, j-hope, for 200 days, from the production of Jack In The Box and the listening party, to his 
+                                      preparation and appearance on the stage of Lollapalooza.
+
+                                      Cast: 
+                                      Jung Hoseok.
+
+                                      Run Time:
+                                      86 Minutes
+
+                                      Opening Date:
+                                      Saturday, 17 June 2023
+
+                                      Genre:
+                                      Documentary" onclick="showDescription(this)">
+      <img src="JB.jpg" alt ="Movie 13">
+      <h2>J-Hope IN...</h2>
+  </div>  <div class="csmovie" data-description="Transformers: Rise Of The Beasts
+
+                                      Set in the 1990s, Transformers: Rise of the Beasts will take audiences on an action-packed, globetrotting adventure as the Maximals, Predacons, and Terrorcons join the battle between the Autobots and Decepticons on Earth. Noah, a sharp young guy from Brooklyn, and Elena, an ambitious, talented artifact researcher, are swept up in the conflict as Optimus Prime and the Autobots face a terrifying new nemesis bent on their destruction named Scourge.
+
+                                      Cast: 
+                                      Anthony Ramos, Michelle Yeoh, Ron Perlman
+
+                                      Run Time:
+                                      127 Minutes
+
+                                      Opening Date:
+                                      Wednesday, 07 June 2023
+
+                                      Genre:
+                                      Action/Adventure" onclick="showDescription(this)">
+      <img src="TRB.jpg" alt ="Movie 14">
+      <h2>Transform...</h2>
+  </div>
+
+</div>
+            
+    <div class="loading-screen">
+      <div class="loading-text">Loading...</div>
+    </div>
+  
+    <div class="movie-description-overlay" id="movie-description-overlay" onclick="hideDescription()">
+      <div class="description-text"></div>
+    </div>
+
+  <script>
+    window.addEventListener('load', function() {
+      document.querySelector('.loading-screen').style.display = 'none';
+    });
+
+    function showDescription(movie) {
+      var description = movie.getAttribute('data-description');
+      var descriptionOverlay = document.getElementById('movie-description-overlay');
+      var descriptionText = descriptionOverlay.querySelector('.description-text');
+      descriptionText.textContent = description;
+      descriptionOverlay.style.display = 'flex';
+    }
+
+    function hideDescription() {
+      var descriptionOverlay = document.getElementById('movie-description-overlay');
+      descriptionOverlay.style.display = 'none';
+    }
+
+  </script>
+
+</body>
+</html>

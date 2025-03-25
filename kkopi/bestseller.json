@@ -1,0 +1,66 @@
+[
+    {
+        "id": 1,
+        "name": "White Choco Iced Latte",
+        "price": "₱39",
+        "image": "img/wcbs.png",
+        "category": 0,
+        "description": ""
+    },
+    {
+        "id": 2,
+        "name": "Caramel Macchiato",
+        "price": "₱39",
+        "image": "img/cm.png",
+        "category": 1,
+        "description": ""
+    },
+    {
+        "id": 3,
+        "name": "Matcha Iced Latte",
+        "price": "₱39",
+        "image": "img/2.png",
+        "category": 2,
+        "description": ""
+    },
+    {
+        "id": 4,
+        "name": "Vanilla Amerikano",
+        "price": "₱39",
+        "image": "img/2.png",
+        "category": 3,
+        "description": ""
+    },    
+    {
+        "id": 5,
+        "name": "Chocolate Milktea",
+        "price": "₱39",
+        "image": "img/chocoBS.png",
+        "category": 4,
+        "description": ""
+    },
+    {
+        "id": 6,
+        "name": "Cookies & Cream",
+        "price": "₱39",
+        "image": "img/4.png",
+        "category": 5,
+        "description": ""
+    },
+    {
+        "id": 7,
+        "name": "Wintermelon Milktea",
+        "price": "₱39",
+        "image": "img/wint.png",
+        "category": 6,
+        "description": ""
+    },
+    {
+        "id": 8,
+        "name": "Tropical Berries Fruit Tea",
+        "price": "₱39",
+        "image": "img/5.png",
+        "category": 7,
+        "description": ""
+    }
+]

@@ -1,0 +1,249 @@
+<html>
+  <head>
+    <title>PFL Cinema Ticket</title>
+    <link rel="shortcut icon" type="image/png" href="icon.png">
+    <link rel="stylesheet" href="Homepage.html">
+
+    <script>
+    window.addEventListener('beforeunload', function() {
+    document.querySelector('.loading-screen').style.display = 'flex';
+    });
+    </script>
+
+    <script>
+      window.onload = function() {
+        var urlParams = new URLSearchParams(window.location.search);
+        var movieId = urlParams.get('movie');
+        var movieSelect = document.getElementById('movie');
+      movieSelect.value = movieId;
+      };
+      </script>
+
+    <style>
+    body {
+      background-image: url('background.jpg');
+      background-size: cover;
+      background-position: center;
+      font-family: Arial, sans-serif;
+    }
+    </style>
+
+    <style>
+      /* Center the form */
+      #form-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 125vh;
+        font-family: Arial, sans-serif;
+        scroll-behavior: smooth;
+      }
+      
+      /* Style the form */      
+      form {
+        background-color: #f2f2f2;
+        border-radius: 5px;
+        padding: 20px;
+        width: 500px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      }
+      
+      label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+      
+      input[type="text"], select {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-bottom: 15px;
+      }
+      
+      input[type="submit"] {
+        background-color: #294d61;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        float: right;
+        transition: background-color 0.3s;
+      }
+      
+      input[type="submit"]:hover {
+        background-color: #182d39;
+      }
+
+      .personaldetails {
+       float: center;
+       }
+
+      .loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      display: none;
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .loading-text {
+      font-size: 24px;
+    }
+
+    </style>
+</head>
+  <body>
+    <div id="form-wrapper">
+      <form id="orderForm" name="orderForm" action="PFLPersonalDetails.html" method="post" onsubmit="return validateForm()">
+        <label for="movie">Select a movie:</label>
+        <select id="movie" name="movie" required>
+          <option value="The Super Mario Bros. Movie">The Super Mario Bros. Movie</option>
+          <option value="Here Comes the Groom">Here Comes the Groom</option>
+          <option value="The Little Mermaid">The Little Mermaid</option>
+          <option value="Love You Long Time">Love You Long Time</option>
+          <option value="Single Bells">Single Bells</option>
+          <option value="Apag">Apag</option>
+        </select>
+        
+        <label for="date" required>Select Date:</label>
+        <input type="date" name="date" id="date" required><br></br>
+
+        <label for="time">Select a time:</label>
+        <select id="time" name="time" required>
+          <option value="4:00 PM">4:00 PM</option>
+          <option value="6:30 PM">6:30 PM</option>
+          <option value="9:00 PM">9:00 PM</option>
+        </select>
+
+        <label for="ticket">Select ticket:</label>
+        <select id="ticket" name="ticket" required>
+          <option value="2D Regular">₱ 340 for 2D REG</option>
+        </select>
+
+        <label for="seats">Number of seats:</label>
+        <input type="text" id="seats" name="seats" required>
+
+        <label for="food">Select food:</label>
+        <select id="food" name="food" required>
+          <option value="None">None</option>
+          <option value="Popcorn Regular">Popcorn Regular - ₱80</option>
+          <option value="Popcorn Large">Popcorn Large - ₱110</option>
+          <option value="Popcorn Paper Bucket">Popcorn Paper Bucket - ₱130</option>
+          <option value="Classic Hotdog Sandwich">Classic Hotdog Sandwich - ₱85</option>
+          <option value="Chicken Nuggets">Chicken Nuggets - ₱140</option>
+        </select>
+
+        <label for="drink">Select Drink:</label>
+        <select id="drink" name="drink" required>
+          <option value="None">None</option>
+          <option value="Regular Soda">Regular Soda - ₱65</option>
+          <option value="Large Soda">Large Soda - ₱75</option>
+          <option value="Bottled Water">Bottled Water - ₱35</option>
+        </select>
+
+     <input type="submit" id="submitbutton" value="Order Now"><br></br>
+      </form>
+    </div>
+
+    <div class="loading-screen">
+      <div class="loading-text">Loading...</div>
+    </div>
+  
+    <script>
+      window.addEventListener('load', function() {
+        document.querySelector('.loading-screen').style.display = 'none';
+      });
+    </script>
+
+    <script>
+      function validateForm() {
+        var movie = document.forms["orderForm"]["movie"].value;
+        var date = document.forms["orderForm"]["date"].value;
+        var time = document.forms["orderForm"]["time"].value;
+        var tickets = document.forms["orderForm"]["ticket"].value;
+        var seats = document.forms["orderForm"]["seats"].value;
+        var food = document.forms["orderForm"]["food"].value;
+        var drink = document.forms["orderForm"]["drink"].value;
+
+        if (movie == "" || date == "" || time == "" || tickets == "" || seats == "" || food == "" || drink == "") {
+          alert("Please fill out all required fields.");
+          return false;
+        }
+
+        var ticketPrice = 0;
+        var foodPrice = 0;
+        var drinkPrice = 0;
+
+        if (tickets == "2D Regular") {
+          ticketPrice = 340;
+        } else {
+        }
+
+        if (food == "Popcorn Regular") {
+          foodPrice = 80;
+        } else if (food == "Popcorn Large") {
+          foodPrice = 110;
+        } else if (food == "Popcorn Paper Bucket") {
+          foodPrice = 130;
+        } else if (food == "Classic Hotdog Sandwich") {
+          foodPrice = 85;
+        } else if (food == "Chicken Nuggets") {
+          foodPrice = 140;
+        }
+
+        if (drink == "Regular Soda") {
+          drinkPrice = 65
+        } else if (drink == "Large Soda") {
+          drinkPrice = 75;
+        } else if (drink == "Bottled Water") {
+          drinkPrice = 35;
+        }
+
+        var totalPrice = ticketPrice * parseInt(seats) + foodPrice + drinkPrice;
+
+        var summary =
+          "Movie: " +
+          movie +
+          "\n" +
+          "Date: " +
+          date +
+          "\n" +
+          "Time: " +
+          time +
+          "\n" +
+          "Tickets: " +
+          tickets +
+          "\n" +
+          "Seats: " +
+          seats +
+          "\n" +
+          "Food: " +
+          food +
+          "\n" +
+          "Drink: " +
+          drink +
+          "\n" +
+          "Total Price = ₱" +
+          totalPrice;
+
+          // Customize the alert message
+          var summary =
+              "Please review your order details below:\n\n" +
+              summary;
+
+        alert(summary);
+
+        return true;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "name": "Kkopi Original",
+        "price": "₱39",
+        "additional_price": "49",
+        "image": "img/3.png",
+        "category": 0,
+        "description": ""
+    },
+    {
+        "id": 2,
+        "name": "White Chocolate",
+        "price": "₱39",
+        "additional_price": "49",
+        "image": "img/wcil.png",
+        "category": 1,
+        "description": ""
+    },
+    {
+        "id": 3,
+        "name": "Muscovado",
+        "price": "₱39",
+        "additional_price": "49",
+        "image": "img/musco.png",
+        "category": 2,
+        "description": ""
+    },
+    {
+        "id": 4,
+        "name": "Caramel Macchiato",
+        "price": "₱39",
+        "additional_price": "49",
+        "image": "img/3.png",
+        "category": 3,
+        "description": ""
+    },
+    {
+        "id": 5,
+        "name": "Chocolate",
+        "price": "₱39",
+        "additional_price": "49",
+        "image": "img/3.png",
+        "category": 4,
+        "description": ""
+    },
+    {
+        "id": 6,
+        "name": "Matcha",
+        "price": "₱39",
+        "additional_price": "49",
+        "image": "img/3.png",
+        "category": 5,
+        "description": ""
+    },
+    {
+        "id": 7,
+        "name": "Hazelnut",
+        "price": "₱39",
+        "additional_price": "49",
+        "image": "img/3.png",
+        "category": 6,
+        "description": ""
+    },
+    {
+        "id": 9,
+        "name": "Vanilla",
+        "price": "₱39",
+        "additional_price": "49",
+        "image": "img/3.png",
+        "category": 7,
+        "description": ""
+    }
+]

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Receipt</title>
+    <style>
+      /* CSS styles for the receipt */
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .receipt {
+        width: 300px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      h1,
+      h2 {
+        text-align: center;
+      }
+
+      .receipt-details {
+        margin-bottom: 20px;
+      }
+
+      .receipt-details span {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="receipt">
+      <h1>Receipt</h1>
+      <div class="receipt-details">
+        <p><span>Name:</span> <span id="name"></span></p>
+        <p><span>Email:</span> <span id="email"></span></p>
+        <p><span>Payment Method:</span> <span id="paymentmethod"></span></p>
+        <p><span>Movie:</span> <span id="movie"></span></p>
+        <p><span>Date:</span> <span id="date"></span></p>
+        <p><span>Time:</span> <span id="time"></span></p>
+        <p><span>Ticket:</span> <span id="ticket"></span></p>
+        <p><span>Seats:</span> <span id="seats"></span></p>
+        <p><span>Food:</span> <span id="food"></span></p>
+        <p><span>Drink:</span> <span id="drink"></span></p>
+      </div>
+      <h2>Thank you for your order!</h2>
+    </div>
+
+    <script>
+      window.addEventListener('DOMContentLoaded', function() {
+        var name = getQueryParam('name');
+        var email = getQueryParam('email');
+        var paymentmethod = getQueryParam('paymentmethod');
+        var movie = getQueryParam('movie');
+        var date = getQueryParam('date');
+        var time = getQueryParam('time');
+        var ticket = getQueryParam('ticket');
+        var seats = getQueryParam('seats');
+        var food = getQueryParam('food');
+        var drink = getQueryParam('drink');
+
+        document.getElementById('name').textContent = name;
+        document.getElementById('email').textContent = email;
+        document.getElementById('paymentmethod').textContent = paymentmethod;
+        document.getElementById('movie').textContent = movie;
+        document.getElementById('date').textContent = date;
+        document.getElementById('time').textContent = time;
+        document.getElementById('ticket').textContent = ticket;
+        document.getElementById('seats').textContent = seats;
+        document.getElementById('food').textContent = food;
+        document.getElementById('drink').textContent = drink;
+      });
+
+      function getQueryParam(param) {
+        var urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+      }
+    </script>
+  </body>
+</html>
